@@ -17,7 +17,7 @@ namespace ChessEngine
         public GameStatus Status
         {
             get { return status; }
-            set { status = value; }
+            private set { status = value; }
         }
 
         public Player CurrentTurn
@@ -46,7 +46,7 @@ namespace ChessEngine
 
             board.resetBoard();
 
-            CurrentTurn = PlayerONE.isWhiteSide() ? PlayerONE : PlayerTWO;
+            CurrentTurn = PlayerONE.WhiteSide ? PlayerONE : PlayerTWO;
 
             movesPlayed.Clear();
         }
@@ -76,7 +76,7 @@ namespace ChessEngine
                 return false;
             }
 
-            if (sourcePiece.White != player.isWhiteSide())
+            if (sourcePiece.White != player.WhiteSide)
             {
                 return false;
             }
@@ -104,7 +104,7 @@ namespace ChessEngine
 
             if (destPiece != null && destPiece is King)
             {
-                if (player.isWhiteSide())
+                if (player.WhiteSide)
                 {
                     Status = GameStatus.WHITE_WIN;
                 }
