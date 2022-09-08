@@ -2,24 +2,26 @@
 //Chess is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 //Chess is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 //You should have received a copy of the GNU General Public License along with Chess. If not, see <https://www.gnu.org/licenses/>.
+using ChessEngine.Pieces;
+
 namespace ChessEngine
 {
-    internal class Rook : Piece
+
+    public class Knight : Piece
     {
-        public Rook(bool white) : base(white, typeof(Rook).ToString())
+        public Knight(bool white) : base(white, typeof(Knight).Name)
         {
         }
+
         public override bool CanMove(Board board, Spot start,
                                                 Spot end)
         {
-            if (end.Piece is not null && end.Piece.White == White)
-            {
+            if (PieceMoveHelper.IsEndPieceSameColor(start.Piece, end.Piece))
                 return false;
-            }
 
             int x = Math.Abs(start.X - end.X);
             int y = Math.Abs(start.Y - end.Y);
-            return x * y == 2;
+            return (x ==1 && y == 2) || (x == 2 && y == 1);
         }
     }
 }
