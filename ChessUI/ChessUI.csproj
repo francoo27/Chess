@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Components\Chessboard.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Shared\ChessBoard.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Components\" />
     <Folder Include="wwwroot\css\fontAwesome\" />
   </ItemGroup>
 

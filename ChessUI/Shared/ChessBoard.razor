@@ -1,0 +1,75 @@
+﻿<div class="container">
+    <table class="">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">a</th>
+                <th scope="col">b</th>
+                <th scope="col">c</th>
+                <th scope="col">d</th>
+                <th scope="col">e</th>
+                <th scope="col">f</th>
+                <th scope="col">g</th>
+                <th scope="col">h</th>
+            </tr>
+        </thead>
+        @{
+            <tbody>
+                @for (int i = 0; i < 8; i++) {
+                <tr>
+                    <th scope="row" class="rowheader">@i</th>
+                    @for (int j = 0; j < 8; j++) {
+                        if(i%2 == 0) {
+                                    <td id="@(i)-@(j)" class="@( j%2 == 0 ? "white":"black") text-center align-middle"><span class="fas fa-chess fa-2x" draggable="true"></span> </td>
+                        } else {
+                                    <td id="@(i)-@(j)" class="@( j%2 == 0 ? "black":"white") text-center align-middle"><span class="fas fa-chess fa-2x"></span> </td>
+                        }       
+                    }
+                </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+<style type="text/css">
+    .white {
+        background-color: papayawhip !important;
+    }
+
+    .white:hover {
+        background-color: navajowhite !important;
+    }
+
+    .black {
+        background-color: black !important;
+    }
+
+    .black:hover {
+        background-color: dimgray !important;
+    }
+    .rowheader {
+        width: 100px;
+    }
+
+    td {
+        padding: 0px;
+        height: 100px;
+        width: 100px;
+    }
+
+    td {
+        padding: 0px;
+        height: 100px;
+        width: 100px;
+    }
+
+    td > span {
+        height:50px;
+        width:50px;
+    }
+
+    td > span::before {
+        position: relative;
+        top: 20%;
+    }
+</style>
